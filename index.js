@@ -12,5 +12,25 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let newArrayToReturn = [];
+
+  for (let tutorial of tutorials) {
+    let valueFromFunc = titleCaseText(tutorial);
+    let joined = valueFromFunc.join(' ');
+    newArrayToReturn.push(joined);
+  }
+  return newArrayToReturn;
 }
+
+function titleCaseText(text) {
+  let arrayToReturn = [];
+  let newArrayWords = text.split(' ');
+  for (let word of newArrayWords) {
+    let capitalizedLetter = word.charAt(0).toUpperCase();
+    let remainingPart = word.slice(1);
+    let newWord = capitalizedLetter + remainingPart;
+    arrayToReturn.push(newWord);
+  }
+  return arrayToReturn;
+}
+
